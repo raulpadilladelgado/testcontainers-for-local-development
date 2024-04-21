@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: testcontainers-local-development
+  datasource:
+    url: jdbc:postgresql://localhost:5432/songs
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  main:
+    banner-mode: off
+    web-application-type: none
+  flyway:
+    locations: classpath:db/migration
+#logging:
+#  level:
+#    root: OFF
