@@ -1,4 +1,5 @@
-import org.example.testcontainerslocaldevelopment.Song
+package org.example.testcontainerslocaldevelopment
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.shell.command.annotation.Command
@@ -6,11 +7,9 @@ import org.springframework.stereotype.Component
 
 @Command(group = "Songs")
 @Component
-class SongsController(jdbcTemplate: JdbcTemplate) {
+class SongsController {
     @Autowired
-    private lateinit var jdbcTemplate: JdbcTemplate
-
-    private var songsRepository: SongsRepository = SongsRepository(jdbcTemplate)
+    private lateinit var songsRepository: SongsRepository
 
     private var counter = 0
 

@@ -1,6 +1,10 @@
-import org.example.testcontainerslocaldevelopment.Song
-import org.springframework.jdbc.core.JdbcTemplate
+package org.example.testcontainerslocaldevelopment
 
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.stereotype.Component
+
+
+@Component
 class SongsRepository(private val jdbcTemplate: JdbcTemplate) {
     fun create(song: Song) {
         jdbcTemplate.update("INSERT INTO songs (name, artist) VALUES (?, ?)", song.name, song.artist)
