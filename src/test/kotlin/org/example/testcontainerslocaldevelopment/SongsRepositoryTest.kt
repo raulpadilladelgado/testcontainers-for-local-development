@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.containers.PostgreSQLContainer
@@ -19,15 +20,8 @@ class SongsRepositoryTest {
 
     companion object {
         @Container
+        @ServiceConnection
         private val posgresContainer = PostgreSQLContainer("postgres:13")
-
-        @JvmStatic
-        @DynamicPropertySource
-        fun properties(registry: DynamicPropertyRegistry) {
-            registry.add("spring.datasource.url", posgresContainer::getJdbcUrl)
-            registry.add("spring.datasource.username", posgresContainer::getUsername)
-            registry.add("spring.datasource.password", posgresContainer::getPassword)
-        }
     }
 
     @Test
