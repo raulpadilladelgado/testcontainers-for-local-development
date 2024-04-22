@@ -4,25 +4,14 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.testcontainers.service.connection.ServiceConnection
-import org.springframework.test.context.DynamicPropertyRegistry
-import org.springframework.test.context.DynamicPropertySource
-import org.testcontainers.containers.PostgreSQLContainer
-import org.testcontainers.junit.jupiter.Container
-import org.testcontainers.junit.jupiter.Testcontainers
+import org.springframework.context.annotation.Import
 
 
-@Testcontainers
 @SpringBootTest
+@Import(TestContainersConfiguration::class)
 class SongsRepositoryTest {
     @Autowired
     private lateinit var repository: SongsRepository
-
-    companion object {
-        @Container
-        @ServiceConnection
-        private val posgresContainer = PostgreSQLContainer("postgres:13")
-    }
 
     @Test
     fun `should create and list songs`() {
