@@ -1,7 +1,6 @@
 package org.example.testcontainerslocaldevelopment
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.shell.command.annotation.Command
 import org.springframework.stereotype.Component
 
@@ -15,7 +14,7 @@ class SongsController {
 
     @Command(command = ["create"], description = "Create a song")
     fun createSong() {
-        songsRepository.create(Song("org.example.testcontainerslocaldevelopment.Song $counter", "Artist $counter"))
+        songsRepository.create(Song("Song $counter", "Artist $counter"))
         counter++
     }
 
