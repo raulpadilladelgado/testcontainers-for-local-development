@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import
 
 
 @SpringBootTest
-@Import(TestContainersConfiguration::class)
+@Import(PostgresTestContainerConfiguration::class)
 class SongsRepositoryTest {
     @Autowired
     private lateinit var repository: SongsRepository

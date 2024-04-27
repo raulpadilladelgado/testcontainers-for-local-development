@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Bean
 import org.testcontainers.containers.PostgreSQLContainer
 
 @TestConfiguration(proxyBeanMethods = false)
-class TestContainersConfiguration {
+class PostgresTestContainerConfiguration {
     @Bean
     @ServiceConnection
-    fun posgresContainer() = PostgreSQLContainer("postgres:13")
+    fun postgresContainer() = PostgreSQLContainer("postgres:13")
 }
